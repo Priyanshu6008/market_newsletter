@@ -307,8 +307,10 @@ def send_telegram():
 
     for i in range(0, len(message), 4000):
         chunk = message[i:i+4000]
-        requests.post(url, data={"chat_id": CHAT_ID, "text": chunk})
 
-send_telegram()
+        response = requests.post(url, data={
+            "chat_id": CHAT_ID,
+            "text": chunk
+        })
 
-print("Newsletter sent successfully")
+        print("Telegram Response:", response.text)
