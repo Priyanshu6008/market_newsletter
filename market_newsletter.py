@@ -309,8 +309,8 @@ def send_telegram():
         chunk = message[i:i+4000]
 
         response = requests.post(url, data={
-            "chat_id": CHAT_ID,
-            "text": chunk
+            "chat_id":CHAT_ID,
+            "text":chunk
         })
 
         print("Telegram Response:", response.text)
